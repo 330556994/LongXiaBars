@@ -25,7 +25,7 @@ public class HomeController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "d")
+	@RequestMapping(value = "")
 	public String index(Model model ){
 		model.addAttribute("allBarCategory", homeService.getAllBarCategory());
 		model.addAttribute("allBarCategoryTwo", homeService.getAllBarCategoryTwo());
