@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.longxia.entities.Bar;
-import com.longxia.entities.BarCategorTwo;
+import com.longxia.entities.BarCategoryTwo;
 import com.longxia.entities.BarCategory;
-import com.longxia.hibernate.dao.impl.BarCategorTwoDAO;
-import com.longxia.hibernate.dao.impl.BarCategoryDAO;
-import com.longxia.hibernate.dao.impl.BarDAO;
+//import com.longxia.hibernate.dao.impl.BarCategoryTwoDAO;
+//import com.longxia.hibernate.dao.impl.BarCategoryDAO;
+//import com.longxia.hibernate.dao.impl.BarDAO;
+import com.longxia.mybatis.mapper.BarCategoryDAO;
+import com.longxia.mybatis.mapper.BarCategoryTwoDAO;
+import com.longxia.mybatis.mapper.BarDAO;
 
 /**
  * 
@@ -27,7 +30,7 @@ public class HomeService {
 	private BarCategoryDAO barCategoryDAO;
 	
 	@Autowired
-	private BarCategorTwoDAO barCategorTwoDAO;
+	private BarCategoryTwoDAO barCategoryTwoDAO;
 	
 	@Autowired
 	private BarDAO barDAO;
@@ -37,8 +40,8 @@ public class HomeService {
 		return barCategoryDAO.findAll();
 	}
 	
-	public List<BarCategorTwo> getAllBarCategoryTwo(){
-		return barCategorTwoDAO.findAll();
+	public List<BarCategoryTwo> getAllBarCategoryTwo(){
+		return barCategoryTwoDAO.findAll();
 	}
 	
 	public List<Bar> getAllBar(){

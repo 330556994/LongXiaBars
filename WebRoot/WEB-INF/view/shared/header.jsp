@@ -29,29 +29,41 @@
    			$(".nav-tabs a:first").click();	
    		});
    		//一键换肤函数
-   		var i = 133;
+   		var i = 141;
    		function changebackground(){
    			$("body").css({"background-image":"url('https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/"+i+".jpg?2","background-size": "100% 100%"});
    			i++;
    		}
    		function showBar(ctNum){
-   			var barHtml =  
-   						+  "<c:forEach items='${allBar }' var='ab' varStatus='vs'>"
-						+		"<c:if test='${vs.current.barCategorTwo.id==1}'>"
-						+			"<h4>${ab.name }</h4>"
-						+		"</c:if>"
-						+  "</c:forEach>";
+   			alert(ctNum)
 			$("#showBarArea").html(barHtml);
-			
    		}
+   		//用户退出函数
+   		function exit(){
+			$.get("/LongXiaBar/exit",
+			  function(data){
+			    var result = eval('(' + data + ')');
+				if(result.success == -1){
+					alert("退出失败");
+				}else if(result.success == 0){
+					$("#modalforlogin").click();
+					$(".modal-body").html("退出成功！！！");
+					$("#close").click(function(){
+						location.href="${pageContext.request.contextPath}/index";
+					});
+					
+				}		    
+			  });
+		}
    </script>
 </head>
-<body  style="background-color:rgb(64, 64, 64);background-image:url('https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/70.jpg?2'); background-size: '100% 100%';background-repeat:no-repeat;background-attachment:fixed;">
+<body  style="background-color:rgb(64, 64, 64);background-image:url('https://ss0.bdstatic.com/k4oZeXSm1A5BphGlnYG/skin/139.jpg?2'); background-size: '100% 100%';background-repeat:no-repeat;background-attachment:fixed;">
   <!-- 由于内边距（padding）是固定宽度，默认情况下容器是不可嵌套的。 -->
   <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+			<!-- 添加 navbar-inverse 样式可以是导航栏颜色变深  即反转 -->
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="navbar-header">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">LongXia</a>
 				</div>
@@ -94,11 +106,7 @@
 							<input type="text" class="form-control" />
 						</div> <button type="submit" class="btn btn-default btn-success">进入贴吧</button>
 					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${sessionScope.username==null }">
-							
-						</c:if>
-						
+					<ul class="nav navbar-nav navbar-right" style="margin-right:20px;">
 						<c:choose>
 							<c:when test="${sessionScope.currentUser==null }">
 								<li>
@@ -111,7 +119,7 @@
 							<c:otherwise>
 								<li>
 								 	<a href="#">
-								 		<img src="${pageContext.request.contextPath }/image/head.jpg" style="height: 23px;width: 23px;padding: 0px;" class="img-responsive img-circle"  alt="响应式图像">
+								 		<img src="${pageContext.request.contextPath }/image/header.png" style="height: 23px;width: 23px;padding: 0px;" class="img-responsive img-circle"  alt="响应式图像">
 								 	</a>
 								</li>
 								<li>

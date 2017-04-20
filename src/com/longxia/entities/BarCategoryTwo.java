@@ -9,7 +9,7 @@ import java.util.Set;
  * BarCategorTwo entity. @author MyEclipse Persistence Tools
  */
 
-public class BarCategorTwo  implements java.io.Serializable {
+public class BarCategoryTwo  implements java.io.Serializable {
 
 
     // Fields    
@@ -23,17 +23,17 @@ public class BarCategorTwo  implements java.io.Serializable {
     // Constructors
 
     /** default constructor */
-    public BarCategorTwo() {
+    public BarCategoryTwo() {
     }
 
 	/** minimal constructor */
-    public BarCategorTwo(BarCategory barCategory, String categoryname) {
+    public BarCategoryTwo(BarCategory barCategory, String categoryname) {
         this.barCategory = barCategory;
         this.categoryname = categoryname;
     }
     
     /** full constructor */
-    public BarCategorTwo(BarCategory barCategory, String categoryname, Set bars) {
+    public BarCategoryTwo(BarCategory barCategory, String categoryname, Set bars) {
         this.barCategory = barCategory;
         this.categoryname = categoryname;
         this.bars = bars;

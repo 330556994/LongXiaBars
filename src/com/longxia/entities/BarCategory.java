@@ -4,11 +4,12 @@ package com.longxia.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.stereotype.Component;
+
 
 /**
  * BarCategory entity. @author MyEclipse Persistence Tools
  */
-
 public class BarCategory  implements java.io.Serializable {
 
 

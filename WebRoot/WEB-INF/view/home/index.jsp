@@ -11,7 +11,7 @@
 		<div class="col-md-3 column">
 			<div class="jumbotron">
 				<h4>${currentUser.nickname}</h4>
-				<img alt="" src="${pageContext.request.contextPath }/image/head.jpg" class="img-rounded"  style="height: 70px;width: 70px;">
+				<img alt="" src="${pageContext.request.contextPath }/image/header.png" class="img-rounded"  style="height: 70px;width: 70px;">
 			</div>
 		</div>
 		<div class="col-md-9 column">
@@ -29,8 +29,8 @@
 						<c:forEach items="${allBarCategory }" var="abc" varStatus="vs">
 							<div class="tab-pane" id="panel-${vs.current.id }">
 								<c:forEach items="${allBarCategoryTwo }" var="abct" varStatus="vst">
-									<c:if test="${vst.current.barCategory.id==vs.current.id }">
-										 <button type="button" class="btn btn-success btn-lg" onclick="showBar()">${abct.categoryname }</button>
+									<c:if test="${abct.categoryId==vs.current.id }">
+										 <button type="button" class="btn btn-success btn-lg" onclick="showBar(${vst.current.id})">${abct.categoryName }</button>
 									</c:if>
 								</c:forEach>
 							</div>
@@ -70,24 +70,6 @@
 
 
 <script>
-
-	function exit(){
-		$.get("/LongXiaBar/exit",
-		  function(data){
-		    var result = eval('(' + data + ')');
-			if(result.success == -1){
-				alert("退出失败");
-			}else if(result.success == 0){
-				$("#modalforlogin").click();
-				$(".modal-body").html("退出成功！！！");
-				$("#close").click(function(){
-					location.href="${pageContext.request.contextPath}/index";
-				});
-				
-			}		    
-		  });
-	}
-
 
 </script>
 

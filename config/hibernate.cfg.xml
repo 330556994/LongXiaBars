@@ -21,7 +21,7 @@
 		<mapping resource="com/longxia/entities/AttentionBar.hbm.xml" />
 		<mapping resource="com/longxia/entities/AttentionThread.hbm.xml" />
 		<mapping resource="com/longxia/entities/Bar.hbm.xml" />
-		<mapping resource="com/longxia/entities/BarCategorTwo.hbm.xml" />
+		<mapping resource="com/longxia/entities/BarCategoryTwo.hbm.xml" />
 		<mapping resource="com/longxia/entities/BarCategory.hbm.xml" />
 		<mapping resource="com/longxia/entities/LevelName.hbm.xml" />
 		<mapping resource="com/longxia/entities/Reply.hbm.xml" />

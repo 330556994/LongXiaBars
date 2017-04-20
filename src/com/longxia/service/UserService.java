@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.longxia.entities.User;
-import com.longxia.hibernate.dao.impl.UserDAO;
+import com.longxia.mybatis.mapper.UserDAO;
+//import com.longxia.hibernate.dao.impl.UserDAO;
 
 /**
  * 
@@ -37,10 +38,6 @@ public class UserService {
 		return (User) userDAO.findByUsername(username).get(0);
 	}
 
-	// ×¢²á·½·¨
-	public List<User> getList() {
-		return userDAO.getList();
-	}
-
+	
 
 }

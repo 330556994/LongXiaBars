@@ -10,7 +10,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Example;
 import org.springframework.stereotype.Repository;
 
-import com.longxia.entities.BarCategorTwo;
+import com.longxia.entities.BarCategoryTwo;
 
 /**
  	* A data access object (DAO) providing persistence and search support for BarCategorTwo entities.
@@ -22,15 +22,15 @@ import com.longxia.entities.BarCategorTwo;
  */
 
 @Repository
-public class BarCategorTwoDAO extends BaseHibernateDAO  {
-		 private static final Log log = LogFactory.getLog(BarCategorTwoDAO.class);
+public class BarCategoryTwoDAO extends BaseHibernateDAO  {
+		 private static final Log log = LogFactory.getLog(BarCategoryTwoDAO.class);
 		//property constants
 	public static final String CATEGORYNAME = "categoryname";
 
 
 
     
-    public void save(BarCategorTwo transientInstance) {
+    public void save(BarCategoryTwo transientInstance) {
         log.debug("saving BarCategorTwo instance");
         try {
             getSession().save(transientInstance);
@@ -41,7 +41,7 @@ public class BarCategorTwoDAO extends BaseHibernateDAO  {
         }
     }
     
-	public void delete(BarCategorTwo persistentInstance) {
+	public void delete(BarCategoryTwo persistentInstance) {
         log.debug("deleting BarCategorTwo instance");
         try {
             getSession().delete(persistentInstance);
@@ -52,10 +52,10 @@ public class BarCategorTwoDAO extends BaseHibernateDAO  {
         }
     }
     
-    public BarCategorTwo findById( java.lang.Integer id) {
+    public BarCategoryTwo findById( java.lang.Integer id) {
         log.debug("getting BarCategorTwo instance with id: " + id);
         try {
-            BarCategorTwo instance = (BarCategorTwo) getSession()
+            BarCategoryTwo instance = (BarCategoryTwo) getSession()
                     .get("BarCategorTwo", id);
             return instance;
         } catch (RuntimeException re) {
@@ -65,7 +65,7 @@ public class BarCategorTwoDAO extends BaseHibernateDAO  {
     }
     
     
-    public List findByExample(BarCategorTwo instance) {
+    public List findByExample(BarCategoryTwo instance) {
         log.debug("finding BarCategorTwo instance by example");
         try {
             List results = getSession()
@@ -114,10 +114,10 @@ public class BarCategorTwoDAO extends BaseHibernateDAO  {
 		}
 	}
 	
-    public BarCategorTwo merge(BarCategorTwo detachedInstance) {
+    public BarCategoryTwo merge(BarCategoryTwo detachedInstance) {
         log.debug("merging BarCategorTwo instance");
         try {
-            BarCategorTwo result = (BarCategorTwo) getSession()
+            BarCategoryTwo result = (BarCategoryTwo) getSession()
                     .merge(detachedInstance);
             log.debug("merge successful");
             return result;
@@ -127,7 +127,7 @@ public class BarCategorTwoDAO extends BaseHibernateDAO  {
         }
     }
 
-    public void attachDirty(BarCategorTwo instance) {
+    public void attachDirty(BarCategoryTwo instance) {
         log.debug("attaching dirty BarCategorTwo instance");
         try {
             getSession().saveOrUpdate(instance);
@@ -138,7 +138,7 @@ public class BarCategorTwoDAO extends BaseHibernateDAO  {
         }
     }
     
-    public void attachClean(BarCategorTwo instance) {
+    public void attachClean(BarCategoryTwo instance) {
         log.debug("attaching clean BarCategorTwo instance");
         try {
             getSession().lock(instance, LockMode.NONE);

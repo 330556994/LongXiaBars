@@ -108,6 +108,10 @@ public class BarDAO extends BaseHibernateDAO  {
 		);
 	}
 	
+	public List findByCategory2Id(int id){
+		return getSession().createQuery("FROM Bar WHERE BarCategorTwo.id = {id}").setInteger("id", id).list();
+	}
+	
 
 	public List findAll() {
 		log.debug("finding all Bar instances");

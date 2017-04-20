@@ -59,9 +59,7 @@ public class UserController {
 	// 注册方法 未完成
 	@RequestMapping("/add")
 	public String add(Model model) {
-		List<User> list = userService.getList();
-		model.addAttribute("list", list);
-		return "add";
+		return null;
 	}
 
 	// 退出方法

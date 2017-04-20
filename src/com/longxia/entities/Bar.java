@@ -15,7 +15,7 @@ public class Bar  implements java.io.Serializable {
     // Fields    
 
      private Integer id;
-     private BarCategorTwo barCategorTwo;
+     private BarCategoryTwo barCategorTwo;
      private User user;
      private String name;
      private Set replies = new HashSet(0);
@@ -31,14 +31,14 @@ public class Bar  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Bar(BarCategorTwo barCategorTwo, User user, String name) {
+    public Bar(BarCategoryTwo barCategorTwo, User user, String name) {
         this.barCategorTwo = barCategorTwo;
         this.user = user;
         this.name = name;
     }
     
     /** full constructor */
-    public Bar(BarCategorTwo barCategorTwo, User user, String name, Set replies, Set levelNames, Set threads, Set attentionBars) {
+    public Bar(BarCategoryTwo barCategorTwo, User user, String name, Set replies, Set levelNames, Set threads, Set attentionBars) {
         this.barCategorTwo = barCategorTwo;
         this.user = user;
         this.name = name;
@@ -59,11 +59,11 @@ public class Bar  implements java.io.Serializable {
         this.id = id;
     }
 
-    public BarCategorTwo getBarCategorTwo() {
+    public BarCategoryTwo getBarCategorTwo() {
         return this.barCategorTwo;
     }
     
-    public void setBarCategorTwo(BarCategorTwo barCategorTwo) {
+    public void setBarCategorTwo(BarCategoryTwo barCategorTwo) {
         this.barCategorTwo = barCategorTwo;
     }
 
