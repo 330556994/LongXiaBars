@@ -38,9 +38,24 @@ public class UserService {
 	}
 
 	// 注册方法
-	public List<User> getList() {
-		return userDAO.getList();
+	public int registry(User user) {
+		if(findByUsername(user.getUsername())){
+			try{
+				userDAO.save(user);
+				return 0;
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else{
+			return 1;
+		}
+		return -1;
 	}
+	
+	//查询注册用户名是否被占用
+	public Boolean findByUsername(String username) {
 
+		return userDAO.findByUsername(username).size()==0?true:false;
+	}
 
 }

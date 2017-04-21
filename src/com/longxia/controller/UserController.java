@@ -1,6 +1,6 @@
 package com.longxia.controller;
 
-import java.util.List;
+import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,7 +22,7 @@ public class UserController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
-		return "user/login";
+		return "user/loginOrRegistry";
 	}
 
 	// // 登陆功能
@@ -56,13 +56,7 @@ public class UserController {
 
 	}
 
-	// 注册方法 未完成
-	@RequestMapping("/add")
-	public String add(Model model) {
-		List<User> list = userService.getList();
-		model.addAttribute("list", list);
-		return "add";
-	}
+	
 
 	// 退出方法
 	@ResponseBody
@@ -76,4 +70,30 @@ public class UserController {
 		}
 
 	}
+	
+	//注册请求静态页面
+	@RequestMapping(value="/registry",method=RequestMethod.GET)
+	public String registry(Model model){
+		model.addAttribute("mode", "registry");
+		return "user/loginOrRegistry";
+	}
+	
+	// 注册添加方法
+	@ResponseBody
+	@RequestMapping(value = "/registry", method = RequestMethod.POST)
+	public String add(User user,HttpServletRequest request) {
+		user.setAge(0);
+		user.setFanscount(0);
+		user.setAttentioncount(0);
+		user.setNickname("大王叫我来巡山");
+		user.setCreatetime(new Timestamp(0));
+		user.setSex(1);
+		int result = userService.registry(user);
+		if(result==0){
+			request.getSession().setAttribute("currentUser",user);
+		}
+		return "{\"success\":\""+ result +"\"}";
+	}
+	
+	
 }

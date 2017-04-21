@@ -11,77 +11,77 @@
             <generator class="native"></generator>
         </id>
         <property name="nickname" type="java.lang.String">
-            <column name="nickname" length="20" not-null="true" />
+            <column name="nickname" length="20" not-null="false" />
         </property>
         <property name="sex" type="java.lang.Integer">
-            <column name="sex" not-null="true" />
+            <column name="sex" not-null="false" />
         </property>
         <property name="age" type="java.lang.Integer">
-            <column name="age" not-null="true" />
+            <column name="age" not-null="false" />
         </property>
         <property name="headimage" type="java.lang.String">
             <column name="headimage" length="200" />
         </property>
         <property name="username" type="java.lang.String">
-            <column name="username" length="20" not-null="true" />
+            <column name="username" length="20" not-null="false" />
         </property>
         <property name="password" type="java.lang.String">
-            <column name="password" length="20" not-null="true" />
+            <column name="password" length="20" not-null="false" />
         </property>
         <property name="createtime" type="java.sql.Timestamp">
-            <column name="createtime" length="19" not-null="true" />
+            <column name="createtime" length="19" not-null="false" />
         </property>
         <property name="fanscount" type="java.lang.Integer">
-            <column name="fanscount" not-null="true" />
+            <column name="fanscount" not-null="false" />
         </property>
         <property name="attentioncount" type="java.lang.Integer">
-            <column name="attentioncount" not-null="true" />
+            <column name="attentioncount" not-null="false" />
         </property>
         <set name="attentionBars" inverse="true">
             <key>
-                <column name="userid" not-null="true" />
+                <column name="userid" not-null="false" />
             </key>
             <one-to-many class="AttentionBar" />
         </set>
         <set name="userAttentionsForCoverattentionuserid" inverse="true">
             <key>
-                <column name="coverattentionuserid" not-null="true" />
+                <column name="coverattentionuserid" not-null="false" />
             </key>
             <one-to-many class="UserAttention" />
         </set>
         <set name="replies" inverse="true">
             <key>
-                <column name="userid" not-null="true" />
+                <column name="userid" not-null="false" />
             </key>
             <one-to-many class="Reply" />
         </set>
         <set name="levelNames" inverse="true">
             <key>
-                <column name="userid" not-null="true" />
+                <column name="userid" not-null="false" />
             </key>
             <one-to-many class="LevelName" />
         </set>
         <set name="bars" inverse="true">
             <key>
-                <column name="ownerid" not-null="true" />
+                <column name="ownerid" not-null="false" />
             </key>
             <one-to-many class="Bar" />
         </set>
         <set name="attentionThreads" inverse="true">
             <key>
-                <column name="userid" not-null="true" />
+                <column name="userid" not-null="false" />
             </key>
             <one-to-many class="AttentionThread" />
         </set>
         <set name="threads" inverse="true">
             <key>
-                <column name="userid" not-null="true" />
+                <column name="userid" not-null="false" />
             </key>
             <one-to-many class="Thread" />
         </set>
         <set name="userAttentionsForAttentionuserid" inverse="true">
             <key>
-                <column name="attentionuserid" not-null="true" />
+                <column name="attentionuserid" not-null="false" />
             </key>
             <one-to-many class="UserAttention" />
         </set>

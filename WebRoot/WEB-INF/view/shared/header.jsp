@@ -17,11 +17,19 @@
                                   user-scalable=no">
    <title>欢迎来到 LongXia 吧</title>
    
-   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+   <!--  
+   	   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	   <style type="text/css">
+	   </style>
+	   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   -->
+   
+   <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">  
    <style type="text/css">
    </style>
-   <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+   <script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
    <script type="text/javascript">
    		//启动函数
    		$(function(){
@@ -95,17 +103,13 @@
 						</div> <button type="submit" class="btn btn-default btn-success">进入贴吧</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<c:if test="${sessionScope.username==null }">
-							
-						</c:if>
-						
 						<c:choose>
 							<c:when test="${sessionScope.currentUser==null }">
 								<li>
 								 	<a href="${pageContext.request.contextPath }/login">登录</a>
 								</li>
 								<li>
-								 	<a href="#">注册</a>
+								 	<a href="${pageContext.request.contextPath }/registry">注册</a>
 								</li>
 							</c:when>
 							<c:otherwise>

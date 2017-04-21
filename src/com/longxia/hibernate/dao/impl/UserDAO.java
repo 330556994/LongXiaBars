@@ -179,11 +179,6 @@ public class UserDAO extends BaseHibernateDAO {
 		}
 	}
 
-	// 注册功能方法
-	public List<User> getList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	//登陆功能
 	public Boolean login(String username, String password) {
